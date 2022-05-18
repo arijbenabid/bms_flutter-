@@ -16,7 +16,6 @@ class Login extends StatelessWidget {
     Size size=MediaQuery.of(context).size;
 double viewInset=MediaQuery.of(context).viewInsets.bottom;
 double deffaultloginSize=size.height -(size.height*0.2);
-double defaultRegisterSize= size.height - (size.height*0.1);
 
     return (MaterialApp(
       home: Scaffold(
@@ -26,10 +25,11 @@ double defaultRegisterSize= size.height - (size.height*0.1);
                 Background(),
                 Align(
                   alignment: Alignment.center,
-                  child: SingleChildScrollView(
-                    child: Container(
-                      width: size.width,
-                      height: deffaultloginSize,
+                  child:Container(
+                    width: size.width,
+                    height: deffaultloginSize,
+                    child:  SingleChildScrollView(
+                     
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -3,6 +3,7 @@ import 'package:bms/screens/interfaces/settings.dart';
 import 'package:flutter/material.dart';
 
 import 'Contract.dart';
+import 'chat.dart';
 import 'complain.dart';
 import 'contact.dart';
 import 'meeting.dart';
@@ -17,8 +18,8 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('Ben Abid Arij'),
-            accountEmail: Text('benabidarij@gmail.com'),
+            accountName: Text('Ben Abid Arij', style: TextStyle(fontWeight: FontWeight.bold )),
+            accountEmail: Text('benabidarij@gmail.com', style: TextStyle(fontWeight: FontWeight.bold ),),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.asset(
@@ -31,7 +32,7 @@ class NavBar extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               image: DecorationImage(
-                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.darken),
 
                 image: AssetImage(
                   'assets/residence.jpg',
@@ -92,6 +93,12 @@ class NavBar extends StatelessWidget {
                 context, MaterialPageRoute(builder: (context) => Complain())),
           ),
           ListTile(
+            leading: Icon(Icons.chat, color: Colors.deepPurple,),
+            title: Text("Chat",),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Chat())),
+
+          ),
+          ListTile(
             leading: Icon(
               Icons.contact_mail_sharp,
               color: Colors.deepPurple,
@@ -102,14 +109,11 @@ class NavBar extends StatelessWidget {
           ),
           Divider(
             color: Colors.deepPurple,
-            height: 90,
+            height: 30,
             thickness: 1,
             indent: 8,
             endIndent: 8,
           ),
-
-
-
           ListTile(
             leading: Icon(
               Icons.logout_sharp,

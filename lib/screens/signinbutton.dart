@@ -31,7 +31,7 @@ bool _isLoading = false ;
         alignment: Alignment.center,
         child:MaterialButton(
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage(title: 'My Home',),),);
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>MyApp(),),);
           },
 
         child: Text(

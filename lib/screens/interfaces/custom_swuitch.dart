@@ -1,10 +1,14 @@
+import 'package:bms/screens/interfaces/theme.dart';
+import 'package:bms/widget/%20change_theme_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomSwitch extends StatefulWidget {
   const CustomSwitch({Key? key}) : super(key: key);
 
   @override
-  _CustomSwitchState createState() => _CustomSwitchState();
+  _CustomSwitchState createState() => _CustomSwitchState(
+  );
 
 
 }
@@ -15,8 +19,8 @@ class _CustomSwitchState extends State<CustomSwitch> {
   double switchHeight = 25.0;
   Duration animationDuration = Duration(milliseconds: 600);
   Duration animationDurationThumb = Duration(milliseconds: 300);
+
   ThemeMode themeMode = ThemeMode.dark;
-  bool get isDarkMode => themeMode ==ThemeMode.dark;
 
 
   bool is_night = true;
@@ -24,21 +28,27 @@ class _CustomSwitchState extends State<CustomSwitch> {
   void _onTapSwitch() {
     setState(() {
       is_night = !is_night;
-     if (is_night  ) {
-       themeMode =ThemeMode.dark;
+     if (is_night){
+       themeMode = ThemeMode.dark ;
+     }else {
+       themeMode = ThemeMode.light;
 
-     } else{
-
-       themeMode =ThemeMode.light;
-    }
+     }
 
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:
+
+
+
+    return MaterialApp(
+
+
+
+      home: Scaffold(
+        body:
 /*
       Center(
         child:*/
@@ -77,8 +87,8 @@ class _CustomSwitchState extends State<CustomSwitch> {
                       bottom: 0,
                       left: is_night ? 0 : (switchWidth - switchHeight),
                       child: AnimatedOpacity(
-                        opacity: is_night ? 1:0 ,
-                        duration:animationDurationThumb ,
+                        opacity: is_night ? 1 : 0,
+                        duration: animationDurationThumb,
                         child: Container(
                           child: Image.asset('assets/moon.png'),
                         ),
@@ -88,12 +98,12 @@ class _CustomSwitchState extends State<CustomSwitch> {
                     // day Background
                     AnimatedPositioned(
                       duration: animationDuration,
-                      width: is_night ? 0: switchWidth,
+                      width: is_night ? 0 : switchWidth,
                       top: 0,
                       bottom: 0,
                       left: 0,
                       child: Container(
-                        width:  switchWidth,
+                        width: switchWidth,
                         height: switchHeight,
                         child: Ink.image(
                           image: AssetImage('assets/daybackground.jpg'),
@@ -107,9 +117,9 @@ class _CustomSwitchState extends State<CustomSwitch> {
                       top: 0,
                       bottom: 0,
                       left: is_night ? 0 : (switchWidth - switchHeight),
-                      child:  AnimatedOpacity(
-                        opacity: is_night ? 0:1 ,
-                        duration:animationDurationThumb ,
+                      child: AnimatedOpacity(
+                        opacity: is_night ? 0 : 1,
+                        duration: animationDurationThumb,
                         child: Container(
                           child: Image.asset('assets/sun.png'),
                         ),
@@ -121,7 +131,13 @@ class _CustomSwitchState extends State<CustomSwitch> {
             ),
           ),
         ),
-     // ),
+        // ),
+      ),
     );
   }
-}
+
+
+
+
+  }
+

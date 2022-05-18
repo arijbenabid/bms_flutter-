@@ -1,5 +1,6 @@
 import 'package:bms/controllers/auth_controller.dart';
 import 'package:bms/screens/interfaces/Contract.dart';
+import 'package:bms/screens/interfaces/chat.dart';
 import 'package:bms/screens/interfaces/complain.dart';
 import 'package:bms/screens/interfaces/contact.dart';
 import 'package:bms/screens/interfaces/meeting.dart';
@@ -136,10 +137,11 @@ class _MyHomeState extends State<MyHome> {
         ),
         ListTile(
           leading: Icon(Icons.comment, color: Colors.deepPurple,),
-          title: Text("Complain"),
+          title: Text("Complain",),
           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Complain())),
 
         ),
+
         ListTile(
           leading: Icon(Icons.contact_mail_sharp, color: Colors.deepPurple,),
           title: Text("Contract"),
@@ -156,7 +158,7 @@ class _MyHomeState extends State<MyHome> {
       ],), ),
       appBar: AppBar(
 actions: [
-  ChangeThemeButtonWidget(),
+ // ChangeThemeButtonWidget(),
 ],
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
